@@ -2,6 +2,11 @@ import fs from 'fs';
 
 const generate = (req, res) => {
     const { quantity } = req.body;
+    if (quantity < 700 || quantity > 1500){
+        return res.status(400).json({
+            message: 'Quantiy of numbers to be generated must be between 700 and 1500'
+        });
+    }
     const dataSet = [];
     const numbers = [];
     for (let i = quantity; i > 0; i--){

@@ -7,7 +7,12 @@ import compare from '../server/routes/compare';
 
 const app = express();
 const db = 'mongodb://godwinekuma:godwin1699@ds113795.mlab.com:13795/dataverifier';
-mongoose.connect(db);
+mongoose.connect(db)
+  .catch((error) => {
+      if (error) {
+          message: 'Cinnection Error'
+      }
+  });
 mongoose.Promise = global.Promise;
 
 app.use(logger('dev'));
