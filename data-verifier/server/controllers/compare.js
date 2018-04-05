@@ -17,7 +17,6 @@ const compare = (req, res) => {
     DataSet
       .find()
       .select('data')
-      .limit(3)
       .exec()
       .then((numbers) => {
           if (numbers.length === 0) {
